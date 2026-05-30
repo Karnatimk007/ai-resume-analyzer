@@ -9,8 +9,16 @@ import resumeRouter from './routes/resumeRouter.js';
 
 const app = express();
 // Middleware
+const allowedOrigins = [
+  'http://localhost:5173',
+  'https://ai-resume-analyzer-five-eosin.vercel.app'
+];
+if (process.env.FRONTEND_URL) {
+  allowedOrigins.push(process.env.FRONTEND_URL.replace(/\/$/, ''));
+}
+
 app.use(cors({
-  origin: process.env.FRONTEND_URL || 'http://localhost:5173',
+  origin: allowedOrigins,
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization']
