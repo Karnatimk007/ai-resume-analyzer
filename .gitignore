@@ -27,3 +27,7 @@ Thumbs.db
 brain/
 scratch/
 *.log
+
+# Vite cache
+.vite/
+**/.vite/

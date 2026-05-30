@@ -1,4 +1,6 @@
-const API_URL = 'http://localhost:5000/user-api';
+const API_URL = import.meta.env.VITE_API_URL || (import.meta.env.MODE === 'production' 
+  ? 'https://ai-resume-analyzer-y1jn.onrender.com/user-api' 
+  : 'http://localhost:5000/user-api');
 
 let accessToken = localStorage.getItem('accessToken') || null;
 
